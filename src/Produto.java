@@ -1,5 +1,6 @@
 public class Produto {
     String nome;
+    String situacao;
     int quantidadeEmEstoque;
     int mediaVendaSemanal;
 
@@ -33,4 +34,17 @@ public class Produto {
     public void setMediaVendaSemanal(int mediaVendaSemanal) {
         this.mediaVendaSemanal = mediaVendaSemanal;
     }
+
+    public String getSituacao() {
+        if (quantidadeEmEstoque < 1.5 * mediaVendaSemanal) {
+            return "Produto com baixa de estoque";
+        }
+        else if (quantidadeEmEstoque > 3.5 * mediaVendaSemanal ){
+            return "Produto com estoque em excesso";
+        }
+        else {
+            return "estoque padronizado"  + " quantidade em estoque: " + getQuantidadeEmEstoque() + " media venda semanal: " + getMediaVendaSemanal();
+        }
+    }
+
 }
